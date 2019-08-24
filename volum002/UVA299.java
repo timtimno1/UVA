@@ -18,7 +18,7 @@ public class UVA299
 			}
 			data.write_data(temp_data);
 			data.bubble_sort();
-				System.out.print("Optimal train swapping takes "+ data.count + " swaps.");
+			System.out.print("Optimal train swapping takes "+ data.count + " swaps.");
 		}
 	}
 }
