@@ -1,23 +1,22 @@
 import java.util.Scanner;
 public class UVA10783
 {
-	public static void main(String[] args)
+	public static void main(String args[])
 	{
 		Scanner in=new Scanner(System.in);
 		int count=in.nextInt();
-		for(int i=1;i<=count;i++)
+		int count_case=0;
+		while(count_case++!=count)
 		{
-			int Fnumber=in.nextInt();
-			int Rnumber=in.nextInt();
 			int sum=0;
-			for(int j=Fnumber;j<=Rnumber;j++)
+			int L=in.nextInt();
+			int F=in.nextInt();
+			for(int i=L;i<=F;i++)
 			{
-				if( (j%2) != 0 )
-				{
-					sum+=j;
-				}
+				if(i%2!=0)sum+=i;
 			}
-			System.out.println("Case " + i + ": " + sum);
+			System.out.println("Case " + count_case + ": " + sum);
 		}
+		
 	}
 }
