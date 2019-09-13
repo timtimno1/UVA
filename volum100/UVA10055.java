@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class main
+public class UVA10055
 {
 	public static void main(String args[])
 	{
