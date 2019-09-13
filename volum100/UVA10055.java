@@ -1,6 +1,5 @@
 import java.util.Scanner;
-import java.lang.Math;
-public class UVA10055
+public class main
 {
 	public static void main(String args[])
 	{
