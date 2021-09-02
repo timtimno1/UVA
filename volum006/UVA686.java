@@ -1,42 +1,38 @@
 import java.util.Scanner;
+
 public class UVA686
 {
 	public static void main(String[] args)
 	{
 		Scanner in=new Scanner(System.in);
+		
 		while(true)
 		{
 			int number=in.nextInt();
+			if(number==0)break;
+			
 			int count=0;
-			if(number==0) break;	
 			for(int i=2;i<=number/2;i++)
-			{
-				if(Prime(i)==true && Prime(number-i)==true)
-				{
+				if(isPrime(i) && isPrime(number-i))
 					count++;
-				}
-			}
-		
+
 			System.out.println(count);
+			
 		}
 	}
-	static boolean Prime(int a)
+	private static boolean isPrime(int number)
 	{
-		int i;
-		for(i=2;i<=a-1;i++)
+		if(number%2==0)
+			return false;
+		else if(number>2)
 		{
-			if(a%i==0)
-			{
-				break;
-			}
-		}
-		if(i==a)
-		{
+			int sqrt=(int)Math.sqrt(number);
+			for(int i=3;i<=sqrt;i+=2)
+				if(number%i==0)
+					return false;
 			return true;
 		}
 		else
-		{
 			return false;
-		}
 	}
 }
