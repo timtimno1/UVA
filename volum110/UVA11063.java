@@ -1,36 +1,30 @@
 import java.util.Scanner;
+import java.util.Arrays;
 public class UVA11063
 {
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		Scanner in=new Scanner(System.in);
+		int Case=1;
 		while(in.hasNext())
 		{
-			int n=in.nextInt();
-			int data[]=new int[n];
-			int data_sum[]=new int[(n+1)*n/2];
-			int count=0;
-			boolean judge=true;
-			for(int i=0;i<n;i++)
-			{
+			int count=in.nextInt();
+			int[] data=new int[count];
+			int[] dataSum=new int[(1+(count-1))*(count-1)/2];
+			for(int i=0;i<count;i++)
 				data[i]=in.nextInt();
-			}
-			for(int i=0;i<n;i++)
-			{
-				for(int j=i;j<n;j++)
-				{
-					data_sum[count++]=data[i]+data[j];
-				}
-			}
-			for(int i=0;i<data_sum.length;i++)
-			{
-				for(int j=i+1;j<data_sum.length;j++)
-				{
-					if(data_sum[i]==data_sum[j])judge=false;
-				}
-			}
-			if(judge)System.out.println("It is a B2-Sequence.");
-			else System.out.println("It is not a B2-Sequence.");
+			
+			int dataCount=0;
+			for(int i=0;i<count;i++)
+				for(int j=i+1;j<count;j++)
+					dataSum[dataCount++]=data[i]+data[j];
+			
+			boolean isB2=true;
+			Arrays.sort(dataSum);
+			for(int i=0;i<dataSum.length-1;i++)
+				if(dataSum[i]==dataSum[i+1])
+					isB2=false;	
+			System.out.println("Case #" + Case++  + ": It is " + (isB2?"":"not ") + "a B2-Sequence.\r\n");
 		}
 	}
 }
